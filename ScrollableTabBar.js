@@ -176,6 +176,10 @@ const ScrollableTabBar = createReactClass({
       width: this.state._widthTabUnderline,
     };
 
+    const {
+      onScroll,
+    } = this.props;
+
     return <View
       style={[styles.container, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}
       onLayout={this.onContainerLayout}
@@ -209,6 +213,8 @@ const ScrollableTabBar = createReactClass({
         directionalLockEnabled={true}
         bounces={false}
         scrollsToTop={false}
+        onScroll={onScroll}
+        scrollEventThrottle={16}
       >
 
         <View
@@ -227,9 +233,9 @@ const ScrollableTabBar = createReactClass({
     </View>;
   },
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
     // If the tabs change, force the width of the tabs container to be recalculated
-    if (JSON.stringify(this.props.tabs) !== JSON.stringify(nextProps.tabs) && this.state._containerWidth) {
+    if (JSON.stringify(prevProps.tabs) !== JSON.stringify(this.props.tabs) && this.state._containerWidth) {
       this.setState({ _containerWidth: null, });
     }
   },
