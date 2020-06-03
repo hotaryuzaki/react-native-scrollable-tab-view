@@ -3,7 +3,6 @@ const { ViewPropTypes } = ReactNative = require('react-native');
 const PropTypes = require('prop-types');
 const createReactClass = require('create-react-class');
 const {
-  Alert,
   View,
   Animated,
   StyleSheet,
