@@ -13,7 +13,7 @@ const {
 } = ReactNative;
 const Button = require('./Button');
 import * as Icon from '@expo/vector-icons';
-import { ActionSheet, Button as ButtonNb, Content } from 'native-base';
+import { ActionSheet, Button as ButtonNb } from 'native-base';
 import Colors from '../../constants/Colors';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
@@ -184,7 +184,7 @@ const ScrollableTabBar = createReactClass({
       onLayout={this.onContainerLayout}
     >
 
-      <Content style={styles.ASContent} contentContainerStyle={styles.ASContainer}>
+      <View style={styles.ASContent} contentContainerStyle={styles.ASContainer}>
         <ButtonNb
           style={styles.ASButton}
           onPress={() =>
@@ -202,7 +202,7 @@ const ScrollableTabBar = createReactClass({
         >
           <Icon.Ionicons name="ios-list" size={24} color={Colors.corporateColorRed} />
         </ButtonNb>
-      </Content>
+      </View>
 
       <ScrollView
         ref={(scrollView) => { this._scrollView = scrollView; }}
